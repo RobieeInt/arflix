@@ -15,6 +15,19 @@ use Inertia\Inertia;
 |
 */
 
+//cek route permission spatie
+
+Route::get('/admin', function () {
+    return 'halaman admin';
+})->middleware('role:admin');
+
+Route::get('/user', function () {
+    return 'halaman user';
+})->middleware('role:user|admin|superadmin');
+
+
+////////////////////////////////////////////////////////////////////////////
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
