@@ -17,25 +17,34 @@ use Inertia\Inertia;
 
 //cek route permission spatie
 
-Route::get('/admin', function () {
-    return 'halaman admin';
-})->middleware('role:admin');
+// Route::get('/admin', function () {
+//     return 'halaman admin';
+// })->middleware('role:admin');
 
-Route::get('/user', function () {
-    return 'halaman user';
-})->middleware('role:user|admin|superadmin');
+// Route::get('/user', function () {
+//     return 'halaman user';
+// })->middleware('role:user|admin|superadmin');
 
 
 ////////////////////////////////////////////////////////////////////////////
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+
+Route::redirect('/', '/prototype/login');
+
+Route::prefix('prototype')->group(function () {
+    Route::get('/login', function () {
+        return Inertia::render('Prototype/Login');
+    });
 });
+
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
