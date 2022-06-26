@@ -31,9 +31,24 @@ use Inertia\Inertia;
 
 Route::redirect('/', '/prototype/login');
 
-Route::prefix('prototype')->group(function () {
+Route::prefix('landing')->group(function () {
+    Route::get('/', function () {
+        return Inertia::render('Welcome/Landing');
+    });
+});
+
+
+Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('/login', function () {
         return Inertia::render('Prototype/Login');
+    })->name('login');
+    Route::get('/register', function () {
+        return Inertia::render('Prototype/Register');
+    })->name('register');
+
+
+    Route::get('/landing', function () {
+        return Inertia::render('Welcome/Landing');
     });
 });
 

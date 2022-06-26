@@ -1,9 +1,8 @@
-export default function Login() {
+import React from 'react';
+import { Link, Head } from '@inertiajs/inertia-react';
+
+export default function Landing(props) {
     return <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3">
-        <div className="fixed top-[-50px] hidden lg:block">
-            <img src="/images/signup-image.png"
-                className="hidden laptopLg:block laptopLg:max-w-[450px] laptopXl:max-w-[640px]" alt="" />
-        </div>
         <div className="py-24 flex laptopLg:ml-[680px] laptopXl:ml-[870px]">
             <div>
                 <img src="/images/moonton-white.svg" alt="" />
@@ -46,5 +45,7 @@ export default function Login() {
                 </form>
             </div>
         </div>
+
     </div>
+
 }

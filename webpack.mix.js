@@ -18,6 +18,14 @@ mix.js('resources/js/app.jsx', 'public/js')
         '@': 'resources/js',
     });
 
+mix.webpackConfig({
+    devServer: {
+        proxy: {
+            '*': 'http://localhost:8000'
+        }
+    }
+});
+
 if (mix.inProduction()) {
     mix.version();
 }
