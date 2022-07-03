@@ -1,5 +1,9 @@
 .btn-primary {
-    @apply bg-alerange text-white;
+    @apply bg-green-800 text-white;
+}
+
+.btn-black {
+    @apply bg-black text-white;
 }
 
 .btn-warning {
@@ -16,4 +20,8 @@
 
 .btn-white-outline {
     @apply text-black border border-[#F1F1F1];
+}
+
+.btn-primary-outline {
+    @apply text-white border border-green-800;
 }
